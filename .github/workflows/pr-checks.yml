@@ -83,11 +83,14 @@ jobs:
         done
 
     - name: Run tests with detailed output
+      id: tests
       run: |
         cd frontend
         npm test -- --coverage --watchAll=false --verbose --testResultsProcessor=jest-junit
+        echo "TEST_EXIT_CODE=0" >> $GITHUB_ENV
       env:
         CI: true
+      continue-on-error: true
 
     - name: Upload test coverage for forked PRs
       uses: actions/upload-artifact@v3
@@ -101,9 +104,16 @@ jobs:
       if: always() && github.event.pull_request.head.repo.full_name != github.repository
       with:
         name: fork-pr-test-results-${{ github.event.number }}
-        path: |
-          frontend/coverage/
-          frontend/build/
+        path: frontend/coverage/
+        if-no-files-found: warn
+
+    - name: Upload build artifacts for forked PRs
+      uses: actions/upload-artifact@v3
+      if: always() && github.event.pull_request.head.repo.full_name != github.repository && steps.build.outcome == 'success'
+      with:
+        name: fork-pr-build-${{ github.event.number }}
+        path: frontend/build/
+        if-no-files-found: warn
 
     - name: Check test coverage
       run: |
@@ -120,25 +130,46 @@ jobs:
           echo "⚠️  No coverage report generated"
         fi
 
+    - name: Handle test failure
+      if: steps.tests.outcome == 'failure'
+      run: |
+        echo "TEST_EXIT_CODE=1" >> $GITHUB_ENV
+
     - name: Build frontend
+      id: build
       run: |
         cd frontend
         npm run build
+        echo "BUILD_EXIT_CODE=0" >> $GITHUB_ENV
       env:
         CI: false
+      continue-on-error: true
+
+    - name: Handle build failure
+      if: steps.build.outcome == 'failure'
+      run: |
+        echo "BUILD_EXIT_CODE=1" >> $GITHUB_ENV
+
+    - name: Fail job if tests or build failed
+      if: steps.tests.outcome == 'failure' || steps.build.outcome == 'failure'
+      run: |
+        echo "❌ Job failing due to test or build failures"
+        echo "Test outcome: ${{ steps.tests.outcome }}"
+        echo "Build outcome: ${{ steps.build.outcome }}"
+        exit 1
 
     - name: Comment PR with test results
       uses: actions/github-script@v6
       if: always() && github.event.pull_request.head.repo.full_name == github.repository
       with:
         script: |
-          const fs = require('fs');
-          const path = require('path');
+          const testOutcome = '${{ steps.tests.outcome }}';
+          const buildOutcome = '${{ steps.build.outcome }}';
 
           let comment = "## 🧪 Frontend Test Results\n\n";
 
           // Add test status
-          if (process.env.TEST_EXIT_CODE === '0') {
+          if (testOutcome === 'success') {
             comment += "✅ **All tests passed!**\n\n";
           } else {
             comment += "❌ **Some tests failed!**\n\n";
@@ -148,7 +179,7 @@ jobs:
           comment += "Coverage reports have been generated and uploaded as artifacts.\n\n";
 
           comment += "### Build Status\n";
-          if (process.env.BUILD_EXIT_CODE === '0') {
+          if (buildOutcome === 'success') {
             comment += "✅ **Build successful!**\n\n";
           } else {
             comment += "❌ **Build failed!**\n\n";
@@ -176,13 +207,17 @@ jobs:
         echo "Note: This PR is from a forked repository (${{ github.event.pull_request.head.repo.full_name }})"
         echo "Automatic PR comments are disabled for security reasons."
         echo ""
-        echo "📊 **Test Status:** ${{ job.status }}"
+        echo "📊 **Test Status:** ${{ steps.tests.outcome }}"
+        echo "🏗️ **Build Status:** ${{ steps.build.outcome }}"
         echo "🔗 **PR Number:** #${{ github.event.number }}"
         echo "🏷️  **Branch:** ${{ github.event.pull_request.head.ref }}"
         echo ""
         echo "📁 **Available Artifacts:**"
         echo "  - fork-pr-coverage-${{ github.event.number }}"
         echo "  - fork-pr-test-results-${{ github.event.number }}"
+        if [ "${{ steps.build.outcome }}" == "success" ]; then
+          echo "  - fork-pr-build-${{ github.event.number }}"
+        fi
         echo ""
         echo "💡 **For maintainers:** Download artifacts above for detailed test and coverage reports."
         echo "================================="

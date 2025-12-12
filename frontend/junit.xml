@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="48" failures="0" errors="0" time="3.276">
+  <testsuite name="Basic Test Suite" errors="0" failures="0" skipped="0" timestamp="2025-12-12T16:33:53" time="0.601" tests="6">
+    <testcase classname="Basic Test Suite basic math operations work" name="Basic Test Suite basic math operations work" time="0.002">
+    </testcase>
+    <testcase classname="Basic Test Suite string operations work" name="Basic Test Suite string operations work" time="0.001">
+    </testcase>
+    <testcase classname="Basic Test Suite array operations work" name="Basic Test Suite array operations work" time="0">
+    </testcase>
+    <testcase classname="Frontend Component Requirements required component files exist" name="Frontend Component Requirements required component files exist" time="0.001">
+    </testcase>
+    <testcase classname="Frontend Component Requirements all TODO sections have been removed" name="Frontend Component Requirements all TODO sections have been removed" time="0.001">
+    </testcase>
+    <testcase classname="Frontend Component Requirements components contain required implementations" name="Frontend Component Requirements components contain required implementations" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="AI Health Chains Assessment - Implementation Verification" errors="0" failures="0" skipped="0" timestamp="2025-12-12T16:33:53" time="0.62" tests="42">
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 1. PatientList Component Requirements component file exists" name="AI Health Chains Assessment - Implementation Verification 1. PatientList Component Requirements component file exists" time="0.001">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 1. PatientList Component Requirements fetchPatients function implemented" name="AI Health Chains Assessment - Implementation Verification 1. PatientList Component Requirements fetchPatients function implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 1. PatientList Component Requirements search functionality implemented" name="AI Health Chains Assessment - Implementation Verification 1. PatientList Component Requirements search functionality implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 1. PatientList Component Requirements patient display rendering implemented" name="AI Health Chains Assessment - Implementation Verification 1. PatientList Component Requirements patient display rendering implemented" time="0.001">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 1. PatientList Component Requirements pagination controls implemented" name="AI Health Chains Assessment - Implementation Verification 1. PatientList Component Requirements pagination controls implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 1. PatientList Component Requirements no TODO sections remaining" name="AI Health Chains Assessment - Implementation Verification 1. PatientList Component Requirements no TODO sections remaining" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 2. PatientDetail Component Requirements component file exists" name="AI Health Chains Assessment - Implementation Verification 2. PatientDetail Component Requirements component file exists" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 2. PatientDetail Component Requirements fetchPatientData function implemented" name="AI Health Chains Assessment - Implementation Verification 2. PatientDetail Component Requirements fetchPatientData function implemented" time="0.001">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 2. PatientDetail Component Requirements patient information display implemented" name="AI Health Chains Assessment - Implementation Verification 2. PatientDetail Component Requirements patient information display implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 2. PatientDetail Component Requirements medical records display implemented" name="AI Health Chains Assessment - Implementation Verification 2. PatientDetail Component Requirements medical records display implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 2. PatientDetail Component Requirements no TODO sections remaining" name="AI Health Chains Assessment - Implementation Verification 2. PatientDetail Component Requirements no TODO sections remaining" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements component file exists" name="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements component file exists" time="0.001">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements fetchConsents function implemented" name="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements fetchConsents function implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements consent creation with Web3 signing implemented" name="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements consent creation with Web3 signing implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements consent status updates implemented" name="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements consent status updates implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements consent display implemented" name="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements consent display implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements Web3 integration implemented" name="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements Web3 integration implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements no TODO sections remaining" name="AI Health Chains Assessment - Implementation Verification 3. ConsentManagement Component Requirements no TODO sections remaining" time="0.001">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements component file exists" name="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements component file exists" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements fetchTransactions function implemented" name="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements fetchTransactions function implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements wallet filtering implemented" name="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements wallet filtering implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements address formatting implemented" name="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements address formatting implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements date formatting implemented" name="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements date formatting implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements transaction display implemented" name="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements transaction display implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements no TODO sections remaining" name="AI Health Chains Assessment - Implementation Verification 4. TransactionHistory Component Requirements no TODO sections remaining" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 5. StatsDashboard Component Requirements component file exists" name="AI Health Chains Assessment - Implementation Verification 5. StatsDashboard Component Requirements component file exists" time="0.001">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 5. StatsDashboard Component Requirements fetchStats function implemented" name="AI Health Chains Assessment - Implementation Verification 5. StatsDashboard Component Requirements fetchStats function implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 5. StatsDashboard Component Requirements statistics display implemented" name="AI Health Chains Assessment - Implementation Verification 5. StatsDashboard Component Requirements statistics display implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 5. StatsDashboard Component Requirements grid layout implemented" name="AI Health Chains Assessment - Implementation Verification 5. StatsDashboard Component Requirements grid layout implemented" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 5. StatsDashboard Component Requirements no TODO sections remaining" name="AI Health Chains Assessment - Implementation Verification 5. StatsDashboard Component Requirements no TODO sections remaining" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 6. API Integration Verification API service file exists" name="AI Health Chains Assessment - Implementation Verification 6. API Integration Verification API service file exists" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 6. API Integration Verification all required API methods exist" name="AI Health Chains Assessment - Implementation Verification 6. API Integration Verification all required API methods exist" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 7. Web3 Integration Verification useWeb3 hook file exists" name="AI Health Chains Assessment - Implementation Verification 7. Web3 Integration Verification useWeb3 hook file exists" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 7. Web3 Integration Verification Web3 hook provides required functions" name="AI Health Chains Assessment - Implementation Verification 7. Web3 Integration Verification Web3 hook provides required functions" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 8. Application Structure App.js exists and integrates all components" name="AI Health Chains Assessment - Implementation Verification 8. Application Structure App.js exists and integrates all components" time="0.001">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 8. Application Structure WalletConnection component exists" name="AI Health Chains Assessment - Implementation Verification 8. Application Structure WalletConnection component exists" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 9. Project Dependencies package.json exists with required dependencies" name="AI Health Chains Assessment - Implementation Verification 9. Project Dependencies package.json exists with required dependencies" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 10. README Checklist Verification PatientList - API integration and search" name="AI Health Chains Assessment - Implementation Verification 10. README Checklist Verification PatientList - API integration and search" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 10. README Checklist Verification PatientDetail - patient info and records display" name="AI Health Chains Assessment - Implementation Verification 10. README Checklist Verification PatientDetail - patient info and records display" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 10. README Checklist Verification ConsentManagement - Web3 signing and status updates" name="AI Health Chains Assessment - Implementation Verification 10. README Checklist Verification ConsentManagement - Web3 signing and status updates" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 10. README Checklist Verification TransactionHistory - wallet filtering and formatting" name="AI Health Chains Assessment - Implementation Verification 10. README Checklist Verification TransactionHistory - wallet filtering and formatting" time="0">
+    </testcase>
+    <testcase classname="AI Health Chains Assessment - Implementation Verification 10. README Checklist Verification StatsDashboard - statistics display" name="AI Health Chains Assessment - Implementation Verification 10. README Checklist Verification StatsDashboard - statistics display" time="0">
+    </testcase>
+  </testsuite>
+</testsuites>
