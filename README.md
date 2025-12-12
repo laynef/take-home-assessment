@@ -83,6 +83,41 @@ npm start
 
 The frontend will run on `http://localhost:3000`
 
+## CI/CD and Pull Request Workflow
+
+This repository includes comprehensive CI/CD workflows that support both regular and forked repository contributions.
+
+### For Contributors from Forked Repositories
+
+When submitting a PR from a forked repository:
+
+1. **Automated Testing**: All tests will run automatically on your forked PR
+2. **Security Limitations**: Due to GitHub security policies, some features are limited:
+   - Automatic PR comments are disabled for security
+   - Test results are available in workflow logs and artifacts
+   - Coverage reports are uploaded as downloadable artifacts
+
+3. **How to Review Results**:
+   - Check the "Pull Request Checks" workflow status
+   - Download artifacts from workflow runs for detailed reports
+   - Review workflow logs for test output and validation results
+
+### Workflow Files
+
+- `.github/workflows/pr-checks.yml` - Main PR validation workflow
+- `.github/workflows/fork-pr-comment.yml` - Forked PR notification system
+- `.github/workflows/ci.yml` - Continuous integration for main branches
+- `.github/workflows/frontend-tests.yml` - Dedicated frontend testing
+
+### What Gets Tested
+
+- ✅ Frontend component validation
+- ✅ Test suite execution with coverage
+- ✅ Build verification
+- ✅ Backend API compatibility
+- ✅ Project structure validation
+- ✅ Assessment requirements compliance
+
 ## Assessment Tasks
 
 ### Your Mission

@@ -4,6 +4,11 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
 
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -84,6 +89,22 @@ jobs:
       env:
         CI: true
 
+    - name: Upload test coverage for forked PRs
+      uses: actions/upload-artifact@v3
+      if: always() && github.event.pull_request.head.repo.full_name != github.repository
+      with:
+        name: fork-pr-coverage-${{ github.event.number }}
+        path: frontend/coverage/
+
+    - name: Upload test results for forked PRs
+      uses: actions/upload-artifact@v3
+      if: always() && github.event.pull_request.head.repo.full_name != github.repository
+      with:
+        name: fork-pr-test-results-${{ github.event.number }}
+        path: |
+          frontend/coverage/
+          frontend/build/
+
     - name: Check test coverage
       run: |
         cd frontend
@@ -108,7 +129,7 @@ jobs:
 
     - name: Comment PR with test results
       uses: actions/github-script@v6
-      if: always()
+      if: always() && github.event.pull_request.head.repo.full_name == github.repository
       with:
         script: |
           const fs = require('fs');
@@ -146,6 +167,25 @@ jobs:
             repo: context.repo.repo,
             body: comment
           });
+
+    - name: Log test results for forked PRs
+      if: always() && github.event.pull_request.head.repo.full_name != github.repository
+      run: |
+        echo "## 🧪 Frontend Test Results (Forked PR)"
+        echo "================================="
+        echo "Note: This PR is from a forked repository (${{ github.event.pull_request.head.repo.full_name }})"
+        echo "Automatic PR comments are disabled for security reasons."
+        echo ""
+        echo "📊 **Test Status:** ${{ job.status }}"
+        echo "🔗 **PR Number:** #${{ github.event.number }}"
+        echo "🏷️  **Branch:** ${{ github.event.pull_request.head.ref }}"
+        echo ""
+        echo "📁 **Available Artifacts:**"
+        echo "  - fork-pr-coverage-${{ github.event.number }}"
+        echo "  - fork-pr-test-results-${{ github.event.number }}"
+        echo ""
+        echo "💡 **For maintainers:** Download artifacts above for detailed test and coverage reports."
+        echo "================================="
 
   backend-compatibility:
     name: Backend Compatibility Check

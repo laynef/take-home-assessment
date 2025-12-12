@@ -1,0 +1,51 @@
+name: Fork PR Comment
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  comment-on-fork-pr:
+    name: Comment on Fork PR
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.head.repo.full_name != github.repository
+
+    steps:
+    - name: Comment on forked PR
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const comment = `## 🔄 Forked PR Detected
+
+          Thank you for your contribution! This PR is from a forked repository.
+
+          **Important Security Notice:**
+          - For security reasons, certain workflow features are limited for forked PRs
+          - Test results and coverage reports will be available in the workflow logs
+          - Automatic PR comments may be limited
+
+          **To Review Test Results:**
+          1. Check the "Pull Request Checks" workflow results
+          2. Download artifacts from the workflow runs for detailed reports
+          3. Review the workflow logs for test output
+
+          ### What Happens Next:
+          - ✅ All tests will run automatically
+          - ✅ Build validation will be performed
+          - ✅ Code quality checks will execute
+          - ⚠️  Detailed results will be in workflow logs rather than comments
+
+          The maintainers will review your changes and provide feedback. Thank you for contributing!
+
+          *This is an automated message for forked repository PRs.*`;
+
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comment
+          });
